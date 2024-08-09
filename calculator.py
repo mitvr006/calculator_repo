@@ -1,30 +1,33 @@
-# this function adds two number 
+import logging
+logging.basicConfig(level=logging.INFO)
+
+   # this function adds two number 
 def add(x,y):
     return x + y
 
-# this function sub two number
+   # this function sub two number
 def sub(x,y):
     return x - y
 
-# this function multi two number
+   # this function multi two number
 def multi(x,y):
     return x * y
 
-# this function div two number
+   # this function div two number
 def div(x,y):
     result=x/y
     return result
 
-print("""select operation
+logging.info("""welcome to calculator\nselect operation:
         1.Add
-        2.sub
-        3.multi
-        4.div""")
+        2.Sub
+        3.Multi
+        4.Div""")
 
 while True:
 
     #take input from the user 
-    choice = input ("Enter choice (1/2/3/4):")
+    choice = input ("Enter choice :")
 
     # check if choice is one of the four options
     if choice in ('1','2','3','4'):
@@ -32,26 +35,24 @@ while True:
             num1 = float (input("Enter first number:"))
             num2 = float (input("Enter second number:"))
         except ValueError:
-            print("invalid input. Please enter a number.")
-
+            logging.error("invalid input. Please enter a number.")
             continue
 
         if choice == '1':
-            print(num1, "+", num2, "=", add(num1, num2))
+            logging.info(add(num1, num2))
 
         elif choice == '2':
-            print(num1, "-", num2, "=", sub(num1, num2)) 
+            logging.info(sub(num1, num2)) 
 
         elif choice == '3':
-            print(num1, "*", num2, "=", multi(num1, num2))
+            logging.info(multi(num1, num2))
 
         elif choice == '4':
-            
-            print(num1, "/", num2, "=",div(num1, num2) )
+            logging.info(div(num1, num2) )
 
             break
 
         else:
-            print("invalid input")
+            logging.info("invalid input")
 
 
